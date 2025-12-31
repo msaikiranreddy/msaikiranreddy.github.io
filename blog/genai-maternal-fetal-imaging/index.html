@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta Tags -->
+  <title>Generative AI in Maternal-Fetal Imaging: A New Era in Prenatal Diagnostics | Sai Kiran Malikireddy</title>
+  <meta name="title" content="Generative AI in Maternal-Fetal Imaging: A New Era in Prenatal Diagnostics" />
+  <meta
+    name="description"
+    content="A long-form, practical deep dive into how Generative AI (GANs, diffusion models, and digital twins) is improving fetal ultrasound and MRI—enhancing clarity, enabling earlier anomaly detection, and supporting personalized prenatal care."
+  />
+  <meta
+    name="keywords"
+    content="generative AI, maternal-fetal imaging, prenatal diagnostics, GANs in ultrasound, diffusion models, digital twins in pregnancy, fetal ultrasound AI, fetal MRI AI, prenatal anomaly detection, Sai Kiran Malikireddy"
+  />
+  <meta name="author" content="Sai Kiran Malikireddy" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Canonical (update to your final URL) -->
+  <link rel="canonical" href="https://msaikiranreddy.github.io/blog/genai-maternal-fetal-imaging" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://msaikiranreddy.github.io/blog/genai-maternal-fetal-imaging" />
+  <meta property="og:title" content="Generative AI in Maternal-Fetal Imaging: A New Era in Prenatal Diagnostics" />
+  <meta
+    property="og:description"
+    content="How generative models (GANs, diffusion, and digital twins) are improving prenatal ultrasound and MRI for earlier detection and more personalized care."
+  />
+  <!-- Update to a real image you host -->
+  <meta property="og:image" content="https://msaikiranreddy.github.io/images/maternal-fetal-og.jpg" />
+  <meta property="og:site_name" content="Sai Kiran Malikireddy" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://msaikiranreddy.github.io/blog/genai-maternal-fetal-imaging" />
+  <meta property="twitter:title" content="Generative AI in Maternal-Fetal Imaging: A New Era in Prenatal Diagnostics" />
+  <meta
+    property="twitter:description"
+    content="Generative AI is ushering in a new era in prenatal diagnostics with clearer fetal imaging and proactive care."
+  />
+  <!-- Update to a real image you host -->
+  <meta property="twitter:image" content="https://msaikiranreddy.github.io/images/maternal-fetal-twitter.jpg" />
+
+  <!-- Schema.org Article Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Generative AI in Maternal-Fetal Imaging: A New Era in Prenatal Diagnostics",
+    "description": "A long-form, practical deep dive into how Generative AI (GANs, diffusion models, and digital twins) is improving fetal ultrasound and MRI—enhancing clarity, enabling earlier anomaly detection, and supporting personalized prenatal care.",
+    "image": "https://msaikiranreddy.github.io/images/maternal-fetal.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Sai Kiran Malikireddy",
+      "url": "https://www.linkedin.com/in/saikiranmalikireddy/",
+      "jobTitle": "Distinguished Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Walmart Global Tech"
+      }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Sai Kiran Malikireddy"
+    },
+    "datePublished": "2025-12-30",
+    "dateModified": "2025-12-30",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://msaikiranreddy.github.io/blog/genai-maternal-fetal-imaging"
+    },
+    "keywords": [
+      "generative AI",
+      "maternal-fetal imaging",
+      "prenatal diagnostics",
+      "GANs in ultrasound",
+      "diffusion models",
+      "digital twins in pregnancy"
+    ],
+    "articleSection": "Healthcare AI",
+    "wordCount": 2600,
+    "timeRequired": "PT15M"
+  }
+  </script>
+
+  <!-- Schema.org Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://msaikiranreddy.github.io/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://msaikiranreddy.github.io/#blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Generative AI in Maternal-Fetal Imaging"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root{
+      --primary:#0f172a;
+      --secondary:#1e293b;
+      --accent:#3b82f6;
+      --accent-hover:#2563eb;
+      --text:#f1f5f9;
+      --text-dim:#cbd5e1;
+      --text-muted:#94a3b8;
+      --card-bg:#1e293b;
+      --border:#334155;
+      --code-bg:#0d1117;
+    }
+
+    body{
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.8;
+      color: var(--text);
+      background: var(--primary);
+    }
+
+    header{
+      background: rgba(30, 41, 59, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo{
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent) 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    nav a{
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    nav a:hover{ color: var(--accent); }
+
+    .breadcrumb{
+      max-width: 800px;
+      margin: 2rem auto 0;
+      padding: 0 2rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .breadcrumb a{
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .breadcrumb a:hover{ text-decoration: underline; }
+
+    article{
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .article-header{ margin-bottom: 3rem; }
+
+    .article-meta{
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag{
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgba(59, 130, 246, 0.2);
+      color: var(--accent);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h1{
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .article-intro{
+      font-size: 1.25rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      padding-left: 1rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .author-info{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      margin-bottom: 3rem;
+      border: 1px solid var(--border);
+    }
+
+    .author-avatar{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent) 0%, #60a5fa 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .author-details h3{
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+    }
+
+    .author-details p{
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .article-content h2{
+      font-size: 2rem;
+      margin: 3rem 0 1.5rem;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .article-content h3{
+      font-size: 1.5rem;
+      margin: 2.5rem 0 1rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .article-content p{
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      color: var(--text-dim);
+    }
+
+    .article-content ul, .article-content ol{
+      margin: 1.5rem 0;
+      padding-left: 2rem;
+      color: var(--text-dim);
+    }
+
+    .article-content li{
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+
+    .article-content strong{
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .highlight-box{
+      background: var(--card-bg);
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .highlight-box h4{
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    code{
+      background: var(--code-bg);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      color: #60a5fa;
+    }
+
+    pre{
+      background: var(--code-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 2rem 0;
+      border: 1px solid var(--border);
+    }
+
+    pre code{
+      background: none;
+      padding: 0;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    .key-takeaways{
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+      border: 1px solid var(--accent);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 3rem 0;
+    }
+
+    .key-takeaways h3{
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .mini-callout{
+      display: grid;
+      gap: 0.75rem;
+      padding: 1.25rem;
+      border-radius: 12px;
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      margin: 2rem 0;
+    }
+
+    .mini-callout .label{
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .table-wrap{
+      overflow-x: auto;
+      margin: 2rem 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 640px;
+      background: var(--card-bg);
+    }
+
+    th, td{
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th{
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    td{
+      color: var(--text-dim);
+      font-size: 0.98rem;
+    }
+
+    .share-section{
+      margin: 4rem 0;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    .share-section h3{
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+
+    .share-buttons{
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .share-btn{
+      padding: 0.8rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.3s;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .share-btn:hover{
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .references{
+      margin: 4rem 0;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .references h2{
+      margin-top: 0;
+    }
+
+    .references ol{
+      margin: 1rem 0 0;
+      padding-left: 1.25rem;
+    }
+
+    .references li{
+      font-size: 1rem;
+      color: var(--text-dim);
+    }
+
+    footer{
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      margin-top: 5rem;
+    }
+
+    @media (max-width: 768px){
+      h1{ font-size: 2rem; }
+      .article-content h2{ font-size: 1.6rem; }
+      .article-content h3{ font-size: 1.3rem; }
+      article{ padding: 0 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="https://msaikiranreddy.github.io/" class="logo">SKM</a>
+      <a href="https://msaikiranreddy.github.io/">← Back to Home</a>
+    </nav>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="https://msaikiranreddy.github.io/">Home</a> /
+    <a href="https://msaikiranreddy.github.io/blog">Blog</a> /
+    Generative AI in Maternal-Fetal Imaging
+  </div>
+
+  <article>
+    <div class="article-header">
+      <div class="article-meta">
+        <span class="tag">Healthcare AI</span>
+        <span>📅 December 30, 2025</span>
+        <span>⏱️ 15–18 min read</span>
+      </div>
+
+      <h1>Generative AI in Maternal-Fetal Imaging: A New Era in Prenatal Diagnostics</h1>
+
+      <p class="article-intro">
+        Prenatal imaging has always been a race against biology: the fetus develops fast, and clinicians often have a narrow window
+        to detect anomalies early enough for meaningful intervention. Generative AI (GenAI) is changing the shape of that race by
+        improving image clarity in ultrasound and MRI, generating synthetic examples of rare conditions, and enabling new predictive
+        workflows such as “digital twins” for high-risk pregnancies.
+      </p>
+
+      <div class="author-info">
+        <div class="author-avatar">SK</div>
+        <div class="author-details">
+          <h3>Sai Kiran Malikireddy</h3>
+          <p>Distinguished Engineer @ Walmart Global Tech | Applying AI + large-scale systems thinking to real-world problems</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="article-content">
+      <h2>Why maternal-fetal imaging is uniquely hard</h2>
+      <p>
+        Maternal-fetal imaging is one of the most demanding environments for medical imaging and decision-making. Ultrasound is widely
+        available and safe, but it’s also sensitive to operator technique, fetal position, maternal anatomy, and hardware quality.
+        MRI can provide richer detail, but it’s not always used in routine screening and can be less accessible depending on geography
+        and resources.
+      </p>
+      <p>
+        On top of the imaging challenges, the data problem is brutal: many clinically important fetal anomalies are rare. That means
+        clinicians may only see a handful of cases in their careers—and machine learning models may see even fewer reliable training
+        examples. This creates a perfect storm where early detection is hard, training data is limited, and the cost of missing
+        subtle signals is high.
+      </p>
+
+      <div class="highlight-box">
+        <h4>🧠 The “why it matters” in one line</h4>
+        <p>
+          If we can improve clarity, consistency, and coverage (including rare cases), we can shift prenatal care from
+          “reactive confirmation” to “proactive detection and planning.”
+        </p>
+      </div>
+
+      <h2>Where Generative AI fits</h2>
+      <p>
+        Traditional AI in imaging is largely discriminative: it classifies what’s already visible (e.g., “normal vs abnormal”).
+        Generative AI is different. It can <strong>create</strong> or <strong>enhance</strong> images—helping clinicians see more clearly,
+        and helping models learn from synthetic examples when real data is scarce.
+      </p>
+
+      <h3>1) GANs: creating realism and enhancing ultrasound</h3>
+      <p>
+        Generative Adversarial Networks (GANs) can produce high-fidelity synthetic fetal images that resemble real scans. In practical
+        terms, GANs can be used to:
+      </p>
+      <ul>
+        <li><strong>Enhance low-quality ultrasound</strong> (denoise, super-resolve, and reduce artifacts)</li>
+        <li><strong>Augment datasets</strong> with rare anomalies (supporting model training and validation)</li>
+        <li><strong>Support modality translation</strong> (e.g., ultrasound-to-“pseudo MRI” style representations)</li>
+      </ul>
+
+      <h3>2) Diffusion models: iterative refinement for clarity</h3>
+      <p>
+        Diffusion models generate or improve images through an iterative denoising process. For prenatal imaging, diffusion-style
+        approaches are especially compelling for early gestation where images can be noisy, anatomy is small, and subtle structures
+        matter most. If GANs are great at generating plausible samples, diffusion models often excel at controlled refinement and
+        reconstruction.
+      </p>
+
+      <h3>3) Automation: segmentation and workflow acceleration</h3>
+      <p>
+        GenAI-enabled workflows are not just about “prettier images.” Automation can assist clinicians in segmentation and measurement:
+        outlining fetal organs, placenta boundaries, and key anatomical landmarks. When done right, this improves consistency and
+        reduces the time clinicians spend on repetitive tasks.
+      </p>
+
+      <div class="mini-callout">
+        <div class="label">✅ Practical framing</div>
+        <p>
+          Think of GenAI as “image quality + data coverage + workflow acceleration.” The biggest wins happen when these three
+          show up together—not in isolation.
+        </p>
+      </div>
+
+      <h2>Case studies: what the numbers suggest</h2>
+      <p>
+        Two real-world oriented use cases illustrate how GenAI changes outcomes: (1) digital twins for gestational diabetes
+        monitoring and (2) fetal heart monitoring for arrhythmia detection.
+      </p>
+
+      <h3>Case study 1: Digital twin for gestational diabetes</h3>
+      <p>
+        A digital twin combines imaging with maternal signals (e.g., blood glucose patterns) and uses AI-driven simulation to forecast
+        risk trajectories—such as fetal macrosomia. In the referenced study, the AI-driven approach demonstrated improved diagnostic
+        accuracy (reported around <strong>~92%</strong>) compared to traditional approaches (reported around <strong>~78%</strong>).
+        That delta matters: it’s the difference between “watch and wait” vs early, personalized intervention planning.
+      </p>
+
+      <h3>Case study 2: Fetal heart monitoring</h3>
+      <p>
+        In fetal heart monitoring, GenAI-enabled pattern recognition can detect faint signals earlier. The referenced results reported
+        <strong>~95% sensitivity</strong> in detecting abnormal fetal rhythms, compared with <strong>~80% sensitivity</strong> for traditional
+        methods—another meaningful improvement in a domain where earlier detection can directly alter outcomes.
+      </p>
+
+      <h2>Performance snapshot across modalities</h2>
+      <p>
+        The following table captures a summarized view of performance metrics reported for GenAI approaches across imaging modalities.
+        Use this as directional evidence—not as a substitute for prospective validation in your clinical setting.
+      </p>
+
+      <div class="table-wrap">
+        <table aria-label="AI model performance metrics by imaging modality">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Ultrasound GenAI</th>
+              <th>MRI GenAI</th>
+              <th>CT GenAI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Accuracy</td>
+              <td>92.4%</td>
+              <td>89.7%</td>
+              <td>91.2%</td>
+            </tr>
+            <tr>
+              <td>Sensitivity</td>
+              <td>90.1%</td>
+              <td>87.3%</td>
+              <td>88.5%</td>
+            </tr>
+            <tr>
+              <td>Specificity</td>
+              <td>93.6%</td>
+              <td>91.2%</td>
+              <td>92.8%</td>
+            </tr>
+            <tr>
+              <td>AUC-ROC</td>
+              <td>0.95</td>
+              <td>0.93</td>
+              <td>0.94</td>
+            </tr>
+            <tr>
+              <td>False Positive Rate</td>
+              <td>6.4%</td>
+              <td>8.8%</td>
+              <td>7.2%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Clinician perception: do people actually want this?</h2>
+      <p>
+        Adoption in healthcare isn’t just about metrics. It’s about trust, workflow fit, and confidence in failure modes.
+        Survey data in the referenced work suggests strong clinician optimism:
+      </p>
+
+      <div class="table-wrap">
+        <table aria-label="Clinician perception survey summary">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Strongly Agree</th>
+              <th>Agree</th>
+              <th>Neutral/Disagree</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Diagnostic Confidence</td>
+              <td>64%</td>
+              <td>24%</td>
+              <td>12%</td>
+            </tr>
+            <tr>
+              <td>Workflow Efficiency</td>
+              <td>72%</td>
+              <td>18%</td>
+              <td>10%</td>
+            </tr>
+            <tr>
+              <td>Patient Communication</td>
+              <td>55%</td>
+              <td>31%</td>
+              <td>14%</td>
+            </tr>
+            <tr>
+              <td>Error Reduction</td>
+              <td>68%</td>
+              <td>21%</td>
+              <td>11%</td>
+            </tr>
+            <tr>
+              <td>Training Usefulness</td>
+              <td>61%</td>
+              <td>29%</td>
+              <td>10%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="key-takeaways">
+        <h3>🎯 Key takeaways for practitioners and builders</h3>
+        <ul>
+          <li><strong>Image enhancement is the fastest win:</strong> better clarity can increase confidence even before full automation.</li>
+          <li><strong>Synthetic data is a force multiplier:</strong> rare anomalies become “trainable” and “testable” at scale.</li>
+          <li><strong>Digital twins enable proactive care:</strong> simulation-based planning is a step toward personalized prenatal pathways.</li>
+          <li><strong>Trust is the real product:</strong> interpretability, bias mitigation, and auditability decide adoption—not hype.</li>
+        </ul>
+      </div>
+
+      <h2>Operational reality: what blocks deployment</h2>
+      <p>
+        GenAI in maternal-fetal imaging is promising—but clinical adoption has non-negotiable requirements. Based on the referenced
+        analysis, five challenges show up repeatedly:
+      </p>
+      <ul>
+        <li><strong>Clinical validation:</strong> robust trials and real-world evidence are required before clinical reliance.</li>
+        <li><strong>Data quality variability:</strong> especially ultrasound—models are only as good as the acquisition conditions.</li>
+        <li><strong>Integration complexity:</strong> combining imaging, EHR data, and maternal signals often requires standardization work.</li>
+        <li><strong>Bias + fairness:</strong> dataset diversity must be intentional; otherwise inequities get encoded into tooling.</li>
+        <li><strong>Explainability + accountability:</strong> black-box outputs don’t survive clinical scrutiny without traceability.</li>
+      </ul>
+
+      <h2>How to think about “responsible GenAI” in prenatal care</h2>
+      <p>
+        If you’re building or evaluating these systems, here’s a pragmatic checklist that tends to correlate with safe, scalable
+        deployments:
+      </p>
+
+      <h3>1) Design for verification, not just performance</h3>
+      <p>
+        Use clear benchmarking frameworks, hold-out validation sets, and clinician-in-the-loop evaluation. Track sensitivity and
+        specificity, but also measure error types (false positives vs false negatives) and downstream clinical impact.
+      </p>
+
+      <h3>2) Make bias mitigation a first-class requirement</h3>
+      <p>
+        Diversity should not be a footnote. Require representative datasets, stratified performance reporting, and continuous monitoring.
+      </p>
+
+      <h3>3) Bake privacy + consent into the pipeline</h3>
+      <p>
+        The data involved is deeply sensitive. De-identification, secure storage, and consent governance should be treated as product
+        requirements, not compliance afterthoughts.
+      </p>
+
+      <h2>What’s next: where the field is heading</h2>
+      <p>
+        In the next few years, expect growth in multimodal models (imaging + clinical notes + labs), better uncertainty calibration
+        (knowing when the model is unsure), and tooling that integrates directly into ultrasound and radiology workflows rather than
+        living in separate research systems. Digital twin approaches may expand from high-risk monitoring to broader predictive
+        prenatal pathways—especially as remote care becomes more normalized.
+      </p>
+
+      <h2>Final thoughts</h2>
+      <p>
+        Generative AI is not a magic wand for prenatal diagnostics—but it is a real step forward. The compelling angle isn’t
+        “AI replacing clinicians.” It’s the ability to deliver clearer images, cover rare conditions through synthetic data,
+        reduce workflow burden, and enable earlier, more proactive decision-making. If we get validation, bias, privacy, and
+        interpretability right, GenAI can meaningfully improve outcomes for mothers and babies.
+      </p>
+
+      <div class="share-section">
+        <h3>Found this useful? Share it.</h3>
+        <div class="share-buttons">
+          <a
+            class="share-btn"
+            href="https://twitter.com/intent/tweet?text=Generative%20AI%20in%20Maternal-Fetal%20Imaging%3A%20A%20New%20Era%20in%20Prenatal%20Diagnostics&url=https://msaikiranreddy.github.io/blog/genai-maternal-fetal-imaging"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Share on Twitter</a>
+
+          <a
+            class="share-btn"
+            href="https://www.linkedin.com/sharing/share-offsite/?url=https://msaikiranreddy.github.io/blog/genai-maternal-fetal-imaging"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Share on LinkedIn</a>
+        </div>
+      </div>
+
+      <section class="references">
+        <h2>References (selected)</h2>
+        <p>
+          I’m listing a concise set here for web readability. You can expand this section with the full bibliography from your paper
+          if you want a more academic version.
+        </p>
+        <ol>
+          <li>Topol, E. (2019). High-performance medicine: the convergence of human and artificial intelligence.</li>
+          <li>Russell & Norvig (2020). Artificial Intelligence: A Modern Approach.</li>
+          <li>Esteva et al. (2017–2019). Deep learning in medical imaging (multiple works).</li>
+          <li>Rieke et al. (2020). Federated learning in medical imaging.</li>
+          <li>Representative fetal ultrasound and GenAI studies cited in the underlying manuscript.</li>
+        </ol>
+      </section>
+    </div>
+  </article>
+
+  <footer>
+    <p>© 2025 Sai Kiran Malikireddy • Built for practitioners who like real engineering tradeoffs</p>
+  </footer>
+</body>
+</html>
