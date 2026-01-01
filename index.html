@@ -32,6 +32,11 @@
         "email": ""
     }
 </script>
+<script>
+  document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
+</script>
 
 <title>Sai Kiran Malikireddy | Distinguished Engineer & Cloud Architect</title>
 
@@ -593,13 +598,13 @@
                 <h1>Sai Kiran Malikireddy</h1>
                 <p class="title">Distinguished Engineer @ Walmart | Cloud & Data Architect</p>
                 <p class="bio">
-    Building internet-scale platforms where <strong>data, AI, and trust converge</strong>. 
-    I design and lead high-throughput distributed systems, real-time intelligence platforms, and privacy-first AI architectures that power 
-    <strong>mission-critical B2B and enterprise ecosystems</strong>.
-    <br><br>
-    My work spans <strong>real-time data platforms, AI-driven decision systems, fraud & identity, Marketing , Salestech,  and cloud-native architectures</strong> — 
-    translating deep technical complexity into scalable, revenue-driving products.
-</p>
+                    Building internet-scale platforms where <strong>data, AI, and trust converge</strong>. 
+                    I design and lead high-throughput distributed systems, real-time intelligence platforms, and privacy-first AI architectures that power 
+                    <strong>mission-critical B2B and enterprise ecosystems</strong>.
+                    <br><br>
+                    My work spans <strong>real-time data platforms, AI-driven decision systems, fraud & identity, Marketing , Salestech,  and cloud-native architectures</strong> — 
+                    translating deep technical complexity into scalable, revenue-driving products.
+                </p>
                 <div class="cta-buttons">
                     <a href="#blog" class="btn btn-primary">Read My Articles</a>
                     <a href="https://www.linkedin.com/in/saikiranmalikireddy/" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
@@ -614,10 +619,10 @@
                     <h3>3 Patents</h3>
                     <p>Technology Innovation</p>
                 </div>
-                  <div class="stat-card">
-        <h3>PB-Scale</h3>
-        <p>Data Platforms</p>
-    </div>
+                <div class="stat-card">
+                    <h3>PB-Scale</h3>
+                    <p>Data Platforms</p>
+                </div>
             </div>
         </section>
         
@@ -784,8 +789,42 @@
         <section id="blog" class="section">
             <div class="container">
                 <h2 class="section-title">Latest Articles & Insights</h2>
+
+
                 
                 <div class="blog-grid">
+                    <article class="blog-card" onclick="openArticle('salesforce-marketing-cloud-marketo')">
+                        <div class="blog-image">📊</div>
+                        <div class="blog-content">
+                            <span class="blog-tag">MARKETING TECHNOLOGY</span>
+                            <div class="blog-meta">
+                                <span>January 1, 2026</span>
+                                <span>•</span>
+                                <span>18 min read</span>
+                            </div>
+                            <h3>When Salesforce Is Non-Negotiable: Picking the Right Marketing Automation Stack</h3>
+                            <p>
+                                A practitioner-led, no-BS comparison of Salesforce Marketing Cloud, Marketo, HubSpot, Pardot, and ActiveCampaign—focused on real-world Salesforce integration, lead lifecycle alignment, pricing reality, and what breaks at scale.
+                            </p>
+                            <a href="/blog/salesforce-marketing-cloud-marketo" class="read-more">Read More →</a>
+                        </div>
+                    </article>
+                    <article class="blog-card" onclick="window.open('https://medium.com/@saikiranmalikireddy/salesforce-marketing-cloud-vs-marketo-a-comprehensive-comparison-for-mid-market-enterprise-3b4247d39f37', '_blank')">
+                        <div class="blog-image">📊</div>
+                        <div class="blog-content">
+                            <span class="blog-tag">MARTECH</span>
+                            <div class="blog-meta">
+                                <span>Dec 22, 2025</span>
+                                <span>•</span>
+                                <span>Medium Article</span>
+                                <span>•</span>
+                                <span>B2B Marketing</span>
+                            </div>
+                            <h3>Salesforce Marketing Cloud vs Marketo: A Comprehensive Comparison</h3>
+                            <p>A deep, architecture-level comparison of Salesforce Marketing Cloud and Adobe Marketo—covering capabilities, data models, AI features, integrations, and suitability for mid-market vs enterprise organizations.</p>
+                            <a href="https://medium.com/@saikiranmalikireddy/salesforce-marketing-cloud-vs-marketo-a-comprehensive-comparison-for-mid-market-enterprise-3b4247d39f37" target="_blank" class="read-more">Read on Medium →</a>
+                        </div>
+                    </article>
                     <article class="blog-card" onclick="window.open('https://medium.com/@saikiranmalikireddy/figma-ipo-genai-growth-hype-reality-my-verdict-4dee9cd4ee69', '_blank')">
                         <div class="blog-image">💼</div>
                         <div class="blog-content">
@@ -942,6 +981,7 @@
         
         function openArticle(slug) {
             const articles = {
+                'salesforce-marketing-cloud-marketo': './blog/salesforce-marketing-cloud-marketo'
                 'genai-maternal-fetal-imaging': './blog/genai-maternal-fetal-imaging'
                 'realtime-data': './blog/multibillion-realtime-data-platforms',
                 'federated-learning': '/blog/privacy-first-ai-federated-learning',
